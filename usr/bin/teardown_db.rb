@@ -7,7 +7,7 @@ require 'nokogiri'
 # Using environment variables we don't have to provide them in this call
 rds = AWS::RDS.new()
 
-db_name=ENV['OPENSHIFT_APP_NAME']
+db_name=ENV['OPENSHIFT_APP_NAME']+"db"
 
 
 # Create a snapshot of database on remove
