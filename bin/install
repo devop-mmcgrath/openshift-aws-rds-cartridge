@@ -24,7 +24,7 @@ then
     client_error "    AWS_SECRET_ACCESS_KEY=mysecret"
     client_error ""
     client_error "eg: "
-    client_error "    rhc env set AWS_ACCESS_KEY_ID=mykeyid AWS_SECRET_ACCESS_KEY=mysecret -a $OPENSHIFT_APP_NAME"
+    client_error "    rhc env set AWS_ACCESS_KEY_ID='mykeyid' AWS_SECRET_ACCESS_KEY='mysecret' -a $OPENSHIFT_APP_NAME"
     exit 2
 fi
 
