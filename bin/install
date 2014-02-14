@@ -13,8 +13,8 @@ case "$1" in
       version="$2"
 esac
 
-scl enable ruby193 "bash -c 'gem install --no-ri --no-rdoc aws-sdk'"
-scl enable ruby193 "ruby $OPENSHIFT_AWSRDS_DIR/usr/bin/create_db.rb"
+# Check for aws-sdk, if it doesn't exist, install
+scl enable ruby193 "ruby -e 'require \"aws-sdk\"'" 2> /dev/null || scl enable ruby193 "bash -c 'gem install --no-ri --no-rdoc aws-sdk'"
 
 if [ -z AWS_ACCESS_KEY_ID ] || [ -z AWS_SECRET_ACCESS_KEY ]
 then
@@ -25,7 +25,10 @@ then
     client_result ""
     client_result "eg: "
     client_result "    rhc env set AWS_ACCESS_KEY_ID=mykeyid AWS_SECRET_ACCESS_KEY=mysecret -a $OPENSHIFT_APP_NAME"
+    exit 2
 fi
+
+scl enable ruby193 "ruby $OPENSHIFT_AWSRDS_DIR/usr/bin/create_db.rb"
 
 [ -z AWS_REGION ] || echo "us-east-1" > $OPENSHIFT_MYSQL_DIR/env/AWS_REGION
 
