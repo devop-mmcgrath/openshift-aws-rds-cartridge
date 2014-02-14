@@ -10,5 +10,3 @@ password=$(generate_password)
 #echo "$username" > $OPENSHIFT_MYSQL_DIR/env/OPENSHIFT_MYSQL_DB_USERNAME
 #echo "$password" > $OPENSHIFT_MYSQL_DIR/env/OPENSHIFT_MYSQL_DB_PASSWORD
 #echo "mysql://$username:$password@$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/" > $OPENSHIFT_MYSQL_DIR/env/OPENSHIFT_MYSQL_DB_URL
-
-scl enable ruby193 "bash -c 'gem install --no-ri --no-rdoc aws-sdk'"
