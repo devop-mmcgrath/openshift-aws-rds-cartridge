@@ -1,6 +1,6 @@
 ---
 Name: openshift-aws-rds-cartridge
-Cartridge-Short-Name: AWS-RDS
+Cartridge-Short-Name: AWSRDS
 Display-Name: aws-rds 0.1
 Description: Cartridge Plugin RDS for Amazon Web Services
 Version: '0.1'
