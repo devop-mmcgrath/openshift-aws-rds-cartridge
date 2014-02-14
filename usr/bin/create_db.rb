@@ -29,5 +29,5 @@ end
 created_db = rds.client.describe_db_instances(:db_instance_identifier => db_name)
 
 # Create new environment variables to function just like MYSQL would
-File.open(ENV['OPENSHIFT_AWSRDS_DIR']+"/env/OPENSHIFT_MYSQL_DB_HOST", 'w') { |file| file.write(db_created.db_instances[0].endpoint.address) }
-File.open(ENV['OPENSHIFT_AWSRDS_DIR']+"/env/OPENSHIFT_MYSQL_DB_PORT", 'w') { |file| file.write(db_created.db_instances[0].endpoint.port) }
+File.open(ENV['OPENSHIFT_AWSRDS_DIR']+"/env/OPENSHIFT_MYSQL_DB_HOST", 'w') { |file| file.write(created_db.db_instances[0].endpoint.address) }
+File.open(ENV['OPENSHIFT_AWSRDS_DIR']+"/env/OPENSHIFT_MYSQL_DB_PORT", 'w') { |file| file.write(created_db.db_instances[0].endpoint.port) }
