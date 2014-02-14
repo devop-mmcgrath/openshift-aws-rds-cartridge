@@ -21,6 +21,7 @@ function status {
 
 # Clean up any log files
 function tidy() {
+  echo "tidy not yet implemented"
 }
 
 case "$1" in
