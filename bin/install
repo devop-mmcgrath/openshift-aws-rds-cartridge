@@ -16,9 +16,34 @@ esac
 scl enable ruby193 "bash -c 'gem install --no-ri --no-rdoc aws-sdk'"
 scl enable ruby193 "ruby $OPENSHIFT_AWSRDS_DIR/usr/bin/create_db.rb"
 
+if [ -z AWS_ACCESS_KEY_ID ] || [ -z AWS_SECRET_ACCESS_KEY ]
+then
+    client_result ""
+    client_result "AWS Credentials not set!  Please set:"
+    client_result "    AWS_ACCESS_KEY_ID=mykeyid"
+    client_result "    AWS_SECRET_ACCESS_KEY=mysecret"
+    client_result ""
+    client_result "eg: "
+    client_result "    rhc env set AWS_ACCESS_KEY_ID=mykeyid AWS_SECRET_ACCESS_KEY=mysecret -a $OPENSHIFT_APP_NAME"
+fi
 
-client_result "URL: TODO"
+[ -z AWS_REGION ] || echo "us-east-1" > $OPENSHIFT_MYSQL_DIR/env/AWS_REGION
 
-cart_props "connection_url=TODO"
+client_result ""
+client_result "MySQL ${version} database added.  Please make note of these credentials:"
+client_result ""
+client_result "       Root User: $OPENSHIFT_MYSQL_DB_USERNAME"
+client_result "   Root Password: $OPENSHIFT_MYSQL_DB_PASSWORD"
+client_result "   Database Name: $OPENSHIFT_APP_NAME"
+client_result ""
 
+client_result 'Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/'
+client_result ""
+client_result "You can manage your new MySQL database by also embedding phpmyadmin."
+client_result "The phpmyadmin username and password will be the same as the MySQL credentials above."
+
+cart_props 'connection_url=mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/'
+cart_props "username=$OPENSHIFT_MYSQL_DB_USERNAME"
+cart_props "password=$OPENSHIFT_MYSQL_DB_PASSWORD"
+cart_props "database_name=$OPENSHIFT_APP_NAME"
 
