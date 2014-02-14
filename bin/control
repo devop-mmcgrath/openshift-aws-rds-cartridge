@@ -16,6 +16,7 @@ function restart {
 }
 
 function status {
+  echo "status not implemented"
 }
 
 # Clean up any log files
