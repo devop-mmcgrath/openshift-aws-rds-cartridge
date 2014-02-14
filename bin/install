@@ -18,8 +18,8 @@ scl enable ruby193 "ruby -e 'require \"aws-sdk\"'" 2> /dev/null || scl enable ru
 
 if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ]
 then
-    client_result ""
-    client_result "AWS Credentials not set!  Please set:"
+    echo "" 1>&2
+    client_error "AWS Credentials not set!  Please set:"
     client_result "    AWS_ACCESS_KEY_ID=mykeyid"
     client_result "    AWS_SECRET_ACCESS_KEY=mysecret"
     client_result ""
