@@ -16,7 +16,7 @@ esac
 # Check for aws-sdk, if it doesn't exist, install
 scl enable ruby193 "ruby -e 'require \"aws-sdk\"'" 2> /dev/null || scl enable ruby193 "bash -c 'gem install --no-ri --no-rdoc aws-sdk'"
 
-if [ -z AWS_ACCESS_KEY_ID ] || [ -z AWS_SECRET_ACCESS_KEY ]
+if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ]
 then
     client_result ""
     client_result "AWS Credentials not set!  Please set:"
