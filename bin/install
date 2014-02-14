@@ -18,13 +18,13 @@ scl enable ruby193 "ruby -e 'require \"aws-sdk\"'" 2> /dev/null || scl enable ru
 
 if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ]
 then
-    echo "" 1>&2
+    client_error ""
     client_error "AWS Credentials not set!  Please set:"
-    client_result "    AWS_ACCESS_KEY_ID=mykeyid"
-    client_result "    AWS_SECRET_ACCESS_KEY=mysecret"
-    client_result ""
-    client_result "eg: "
-    client_result "    rhc env set AWS_ACCESS_KEY_ID=mykeyid AWS_SECRET_ACCESS_KEY=mysecret -a $OPENSHIFT_APP_NAME"
+    client_error "    AWS_ACCESS_KEY_ID=mykeyid"
+    client_error "    AWS_SECRET_ACCESS_KEY=mysecret"
+    client_error ""
+    client_error "eg: "
+    client_error "    rhc env set AWS_ACCESS_KEY_ID=mykeyid AWS_SECRET_ACCESS_KEY=mysecret -a $OPENSHIFT_APP_NAME"
     exit 2
 fi
 
