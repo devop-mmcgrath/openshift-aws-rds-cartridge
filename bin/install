@@ -30,7 +30,7 @@ fi
 
 scl enable ruby193 "ruby $OPENSHIFT_AWSRDS_DIR/usr/bin/create_db.rb"
 
-[ -z AWS_REGION ] || echo "us-east-1" > $OPENSHIFT_MYSQL_DIR/env/AWS_REGION
+[ -z "$AWS_REGION" ] || echo "us-east-1" > $OPENSHIFT_AWSRDS_DIR/env/AWS_REGION
 
 client_result ""
 client_result "MySQL ${version} database added.  Please make note of these credentials:"
