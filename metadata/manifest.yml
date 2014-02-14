@@ -9,7 +9,7 @@ Vendor: mmcgrathcommunity
 Cartridge-Version: 0.0.1
 Cartridge-Vendor: mmcgrathcommunity
 Source-Url: https://github.com/mmcgrath-openshift/openshift-aws-rds-cartridge.git
-Website: https://github.com/afaqurk/linux-dash/wiki
+Website: http://aws.amazon.com/rds/
 Categories:
 - service
 Cart-Data:

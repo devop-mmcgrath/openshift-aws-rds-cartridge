@@ -20,9 +20,6 @@ function status {
 
 # Clean up any log files
 function tidy() {
-  client_message "Emptying log dir: $OPENSHIFT_DASH_LOG_DIR"
-  shopt -s dotglob
-  rm -rf $OPENSHIFT_DASH_LOG_DIR/*
 }
 
 case "$1" in
