@@ -1,0 +1,22 @@
+#!/bin/bash -e
+
+if [[ -d /usr/lib64 ]]; then
+  _libdir=/usr/lib64
+else
+  _libdir=/usr/lib
+fi
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+case "$1" in
+    -v|--version)
+      version="$2"
+esac
+
+scl enable ruby193 "bash -c 'gem install --no-ri --no-rdoc aws-sdk'"
+scl enable ruby193 "ruby $OPENSHIFT_AWSRDS_DIR/usr/bin/remove_db.rb" || :
+
+client_result ""
+client_result "Remember, on exit the database $OPENSHIFT_APP_NAME was destroyed and is being snapshotted"
+client_result "This can take a while, please check your aws console for more"
+client_result ""

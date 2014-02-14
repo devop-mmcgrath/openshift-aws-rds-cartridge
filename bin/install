@@ -14,7 +14,7 @@ case "$1" in
 esac
 
 scl enable ruby193 "bash -c 'gem install --no-ri --no-rdoc aws-sdk'"
-#scl enable ruby193 "ruby $OPENSHIFT_AWSRDS_DIR/usr/bin/create_db.rb"
+scl enable ruby193 "ruby $OPENSHIFT_AWSRDS_DIR/usr/bin/create_db.rb"
 
 
 client_result "URL: TODO"
