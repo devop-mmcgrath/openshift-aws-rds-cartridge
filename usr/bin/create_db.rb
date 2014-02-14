@@ -12,7 +12,7 @@ end
 # Using environment variables we don't have to provide them in this call
 rds = AWS::RDS.new()
 
-db_name=ENV['OPENSHIFT_APP_NAME']+"db"
+db_name=ENV['OPENSHIFT_APP_NAME']
 openshift_mysql_db_username='admin' + generate_random(7)
 openshift_mysql_db_password=generate_random(12)
 
