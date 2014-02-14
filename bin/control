@@ -1,0 +1,34 @@
+#!/bin/bash -e
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+
+function start {
+  echo "Starting AWS-RDS cartridge"
+}
+
+function stop {
+  echo "Stopping AWS-RDS cartridge"
+}
+
+function restart {
+  echo "Restarting AWS-RDS cartridge"
+}
+
+function status {
+}
+
+# Clean up any log files
+function tidy() {
+  client_message "Emptying log dir: $OPENSHIFT_DASH_LOG_DIR"
+  shopt -s dotglob
+  rm -rf $OPENSHIFT_DASH_LOG_DIR/*
+}
+
+case "$1" in
+  start) start ;;
+  stop) stop ;;
+  restart) restart ;;
+  status) status ;;
+  tidy) tidy ;;
+esac

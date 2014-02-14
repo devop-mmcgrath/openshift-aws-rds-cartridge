@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+scl enable ruby193 "bash -c 'gem install aws-sdk'"

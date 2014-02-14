@@ -1,0 +1,37 @@
+---
+Name: openshift-aws-rds-cartridge
+Cartridge-Short-Name: AWS-RDS
+Display-Name: aws-rds 0.1
+Description: Cartridge Plugin RDS for Amazon Web Services
+Version: '0.1'
+License: MIT
+Vendor: mmcgrathcommunity
+Cartridge-Version: 0.0.1
+Cartridge-Vendor: mmcgrathcommunity
+Source-Url: https://github.com/mmcgrath-openshift/openshift-aws-rds-cartridge.git
+Website: https://github.com/afaqurk/linux-dash/wiki
+Categories:
+- service
+Cart-Data:
+- Key: username
+  Type: cart_data
+  Description: Root user on mysql database
+- Key: password
+  Type: cart_data
+  Description: Password for root user on mysql database
+- Key: database_name
+  Type: cart_data
+  Description: MySQL DB name
+- Key: connection_url
+  Type: cart_data
+  Description: MySQL DB connection URL
+Provides:
+- mysql
+Publishes:
+  get-serve-info:
+    Type: NET_TCP:db-config:url
+Subscribes:
+Scaling:
+  Min: 1
+  Max: 1
+Configure-Order:
