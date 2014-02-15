@@ -11,7 +11,7 @@ Step 1 is to upload your AWS keys to OpenShift so the cartridge can use them.  U
 
 Step 2 is to install the cartridge:
 
-   cartridge add -a MYAPP https://github.com/mmcgrath-openshift/openshift-aws-rds-cartridge/raw/master/metadata/manifest.yml
+    rhc cartridge add -a MYAPP https://github.com/mmcgrath-openshift/openshift-aws-rds-cartridge/raw/master/metadata/manifest.yml
 
 # Usage
 Usage of this cartridge is idential to the MySQL cartridge provided by OpenShift except there is no local socket available.
