@@ -14,7 +14,12 @@ Step 2 is to install the cartridge:
     rhc cartridge add -a MYAPP https://github.com/mmcgrath-openshift/openshift-aws-rds-cartridge/raw/master/metadata/manifest.yml
 
 # Usage
-Usage of this cartridge is idential to the MySQL cartridge provided by OpenShift except there is no local socket available.
+Usage of this cartridge is idential to the MySQL cartridge provided by OpenShift except there is no local socket available.  This includes use of the following environment variables:
+* OPENSHIFT_MYSQL_DB_USERNAME
+* OPENSHIFT_MYSQL_DB_PASSWORD
+* OPENSHIFT_MYSQL_DB_HOST
+* OPENSHIFT_MYSQL_DB_PORT
+* OPENSHIFT_MYSQL_DB_URL
 
 # Special Note
 When removed, this cartridge will destroy the database associated with this application and create a snapshot of it.  Keep in mind until the snapshot is cleaned up you will incur AWS charges on your AWS bill so keep that in mind.
